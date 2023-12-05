@@ -308,7 +308,7 @@ router.post("/generate", isLoggedIn, async (req, res) => {
 
 router.get("/main/images", (req, res) => {
   connection.query(
-    "SELECT img_path FROM image ORDER BY img_num DESC",
+    "SELECT img_path, img_num FROM image ORDER BY img_num DESC",
     (error, results) => {
       if (error) {
         console.error("Error fetching images: " + error.stack);
@@ -325,7 +325,7 @@ router.get("/history/four/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT img_path FROM image WHERE img_user = ? ORDER BY img_num DESC LIMIT 4",
+    "SELECT img_path, img_num FROM image WHERE img_user = ? ORDER BY img_num DESC LIMIT 4",
     [userId],
     (error, results) => {
       if (error) {
@@ -361,7 +361,7 @@ router.get("/posts/four/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN image ON posts.img = image.img_path WHERE posts.UserId = ? ORDER BY posts.id DESC LIMIT 4",
+    "SELECT image.img_path, image.img_num FROM posts JOIN image ON posts.img = image.img_path WHERE posts.UserId = ? ORDER BY posts.id DESC LIMIT 4",
     [userId],
     (error, results) => {
       if (error) {
@@ -379,7 +379,7 @@ router.get("/posts/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN image ON posts.img = image.img_path WHERE posts.UserId = ? ORDER BY posts.id DESC",
+    "SELECT image.img_path, image.img_num FROM posts JOIN image ON posts.img = image.img_path WHERE posts.UserId = ? ORDER BY posts.id DESC",
     [userId],
     (error, results) => {
       if (error) {
@@ -397,7 +397,7 @@ router.get("/like/four/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN `Like` ON posts.id = `Like`.PostId JOIN image ON posts.img = image.img_path WHERE `Like`.UserId = ? ORDER BY posts.id DESC LIMIT 4",
+    "SELECT image.img_path, image.img_num FROM posts JOIN `Like` ON posts.id = `Like`.PostId JOIN image ON posts.img = image.img_path WHERE `Like`.UserId = ? ORDER BY posts.id DESC LIMIT 4",
     [userId],
     (error, results) => {
       if (error) {
@@ -415,7 +415,7 @@ router.get("/like/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN `Like` ON posts.id = `Like`.PostId JOIN image ON posts.img = image.img_path WHERE `Like`.UserId = ? ORDER BY posts.id DESC",
+    "SELECT image.img_path, image.img_num FROM posts JOIN `Like` ON posts.id = `Like`.PostId JOIN image ON posts.img = image.img_path WHERE `Like`.UserId = ? ORDER BY posts.id DESC",
     [userId],
     (error, results) => {
       if (error) {
@@ -433,7 +433,7 @@ router.get("/comments/four/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN comments ON posts.id = comments.PostId JOIN image ON posts.img = image.img_path WHERE comments.UserId = ? ORDER BY comments.id DESC LIMIT 4",
+    "SELECT image.img_path, image.img_num FROM posts JOIN comments ON posts.id = comments.PostId JOIN image ON posts.img = image.img_path WHERE comments.UserId = ? ORDER BY comments.id DESC LIMIT 4",
     [userId],
     (error, results) => {
       if (error) {
@@ -451,7 +451,7 @@ router.get("/comments/images", (req, res) => {
   const userId = req.user.id;
 
   connection.query(
-    "SELECT image.img_path FROM posts JOIN comments ON posts.id = comments.PostId JOIN image ON posts.img = image.img_path WHERE comments.UserId = ? ORDER BY comments.id DESC",
+    "SELECT image.img_path, image.img_num FROM posts JOIN comments ON posts.id = comments.PostId JOIN image ON posts.img = image.img_path WHERE comments.UserId = ? ORDER BY comments.id DESC",
     [userId],
     (error, results) => {
       if (error) {

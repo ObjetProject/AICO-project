@@ -1,20 +1,16 @@
 function closePopup() {
-  // let popup = document.getElementById("popup");
-  // popup.style.display = "none";
   location.reload(true);
 }
 
-function showPopup(imgsrc, user, content, generateStyle, postId) {
+function showPopup(imgsrc, user, content, postId) {
   let popup = document.getElementById("popup");
   let clickedImg = document.getElementById("post_img");
   let popupUser = document.getElementById("post_popup_userid");
   let cardTxt = document.getElementById("popupTxt");
   let style = document.getElementById("generate_style");
   let popupHeart = document.querySelector(".popup_heart");
-  // let follow = document.querySelector(".popup_heart");
 
   popupHeart.id = `${postId}_heart`;
-
   axios
     .post(`/post/${popupHeart.id}/checklike`)
     .then((res) => {
@@ -30,7 +26,7 @@ function showPopup(imgsrc, user, content, generateStyle, postId) {
 
   style.innerHTML = ``;
 
-  var arSplitUrl = generateStyle.split("/");
+  var arSplitUrl = imgsrc.split("/");
   var nArLength = arSplitUrl.length;
   var arFileName = arSplitUrl[nArLength - 1];
   var arSplitFileName = arFileName.split(".");
@@ -50,7 +46,6 @@ function showPopup(imgsrc, user, content, generateStyle, postId) {
   }
 
   let myid = document.querySelector(`.login_user`).innerHTML;
-  // alert(myid);
 
   let hiddenPostIdInput = document.querySelector(
     ".write_img_post_box input[name='postId']"

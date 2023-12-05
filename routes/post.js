@@ -45,23 +45,6 @@ const upload2 = multer();
 router.post("/", isLoggedIn, upload2.none(), async (req, res, next) => {
   try {
     console.log("URL from request:", req.body);
-    // try {
-    //   console.log("여기들어옴");
-    //   const [image] = await Image.findAll({
-    //     attributes: ["img_num"],
-    //     where: { img_path: req.body.url },
-    //     order: [["img_num", "DESC"]],
-    //     limit: 1,
-    //   });
-    //   console.log(image);
-    //   console.log(req.body.url);
-    //   console.log("오케이");
-    // } catch (e) {
-    //   console.log("여기가 문제다!!");
-    // }
-    // console.log(req.body.url);
-    // let tmp = req.body.url.join(``);
-    // console.log(tmp);
 
     const [image] = await Image.findAll({
       attributes: ["img_num", "img_path"],
@@ -69,15 +52,7 @@ router.post("/", isLoggedIn, upload2.none(), async (req, res, next) => {
       order: [["img_num", "DESC"]],
       limit: 1,
     });
-    console.log(image);
-    console.log("오케이");
 
-    // let tmp = image.img_num ? image.img_num : req.body.url;
-
-    // console.log(`여기여기여기`);
-    // console.log(req.body.url);
-    // let tmp = Array(req.body.url.join(``));
-    // console.log(tmp);
     const post = await Post.create({
       content: req.body.content,
       img: image.img_path,
@@ -126,17 +101,45 @@ router.post("/:id/like", async (req, res, next) => {
 });
 
 router.post("/:id/checklike", async (req, res, next) => {
-  try {
-    const post = await Post.findOne({ where: { id: req.params.id } });
-    const liker = await post.getLiker({
-      where: { id: req.user.dataValues.id },
-    });
+  console.log(`followNumber: ${req.params.id}`);
+  console.log(`useriddd: ${req.user.dataValues.id}`);
 
+  const post = await Post.findOne({ where: { id: req.params.id } });
+  const liker = await post.getLiker({
+    where: { id: req.user.dataValues.id },
+  });
+  // console.log(`포포스트트: ${Post}`);
+  // console.log(`이미지지지: ${Image}`);
+  // console.log(`------------`);
+  // console.log(`포포스트트: ${post}`);
+  // console.log(`이미지지지: ${liker}`);
+  try {
     if (liker.length > 0) {
       console.log("이미 좋아요를 누름");
       return res.send("Liked");
     }
     console.log("좋아요를 누름");
+    res.send("Unliked");
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.post("/popupimg/:id/checklike", async (req, res, next) => {
+  console.log(`followNumber: ${req.params.id}`);
+  // console.log(`useriddd: ${req.user.dataValues.id}`);
+
+  const post = await Post.findOne({ where: { id: req.params.id } });
+  // const liker = await post.getLiker({
+  //   where: { id: req.user.dataValues.id },
+  // });
+
+  try {
+    console.log(`포포스트트: ${Post.id}`);
+    console.log(`이미지지지: ${Image}`);
+    console.log("좋아요를 누름ㅎㅎㅎ");
+    console.log(`포포스: ${post}`);
     res.send("Unliked");
   } catch (error) {
     console.error(error);

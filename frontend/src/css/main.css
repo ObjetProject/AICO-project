@@ -128,7 +128,7 @@ body {
 #clicked_img {
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 180%;
+  width: 90%;
   border-radius: 5px;
 }
 
@@ -157,8 +157,8 @@ body {
   background-color: #6E6E6E;
   margin: auto;
   margin-top: 50px;
-  padding-bottom: 100px;
-  padding-top: 20px;
+  padding-bottom: 5%;
+  /* padding-top: 20px; */
   border-radius: 15px;
   width: 50%;
 }
@@ -196,7 +196,7 @@ body {
 }
 
 .img_click_box {
-  width: 40%;
+  width: 35%;
   margin-right: auto;
   margin-left: auto;
 }

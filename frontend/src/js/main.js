@@ -3,12 +3,34 @@ function closePopup() {
   popup.style.display = "none";
 }
 
-function showPopup(imgsrc) {
+function showPopup(imgsrc, imgNum) {
   let popup = document.getElementById("popup_bg");
   let clickImg = document.getElementById("clicked_img");
   let imgTxt = document.getElementById("img_generating_txt");
-  // let downBtn = document.getElementById("down_btn");
-  // alert("hihi");
+  // alert(imgNum);
+  // let popupHeart = document.getElementsByClassName("popup_heart");
+  // popupHeart.id = `${imgNum}_heart`;
+  // alert(popupHeart.id);
+  // axios
+  //   .post(`/post/popupimg/${popupHeart.id}/checklike`)
+  //   .then((res) => {
+  //     if (res.data === "Liked") {
+  //       popupHeart.src = "http://localhost:8003/like_btn.svg";
+  //     } else if (res.data === "Unliked") {
+  //       popupHeart.src = "http://localhost:8003/white_heart.svg";
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+
+  // popupHeart.onclick = function () {
+  //   changeHeart(popupHeart.id);
+  // };
+
+  // popupHeart.addEventListener("click", function () {
+  //   popupHeart.onclick = changeHeart(`${popupHeart.id}`);
+  // });
 
   var arSplitUrl = imgsrc.split("/");
   var nArLength = arSplitUrl.length;
@@ -32,26 +54,6 @@ function showPopup(imgsrc) {
   }
   clickImg.src = imgsrc;
 
-  // imgsrc = imgsrc.replace(`https://aico-content.s3.amazonaws.com`, `image`);
-  // alert(imgsrc);
-
-  //downBtn.href = imgsrc;
-  // downBtn.addEventListener("click", function() {
-  //   // 새로운 a 태그 생성
-  //   var link = document.createElement('a');
-
-  //   // a 태그의 속성 설정
-  //   link.href = imgsrc;
-  //   link.download = 'downloaded_image.png';
-
-  //   // a 태그를 document에 추가하고 클릭 이벤트를 발생시켜 다운로드를 시작
-  //   document.body.appendChild(link);
-  //   link.click();
-
-  //   // 추가한 a 태그 제거
-  //   document.body.removeChild(link);
-  // });
-
   popup.style.display = "block";
 
   // 화면 스크롤을 맨 위로 이동
@@ -70,94 +72,34 @@ function copyTxt() {
   alert(`복사되었습니다.`);
 }
 
-function changeHeart(num) {
-  let heart = document.getElementById(num).src;
+function changeHeart(imgId) {
+  let heart = document.getElementById(imgId);
 
   if (heart == "http://localhost:8003/white_heart.svg") {
-    document.getElementById(num).src = "http://localhost:8003/like_btn.svg";
+    document.getElementById(imgId).src = "http://localhost:8003/like_btn.svg";
   } else {
-    document.getElementById(num).src = "http://localhost:8003/white_heart.svg";
+    document.getElementById(imgId).src =
+      "http://localhost:8003/white_heart.svg";
   }
+
+  // const twitId = imgId;
+  // alert(twitId);
+
+  // axios
+  //   .post(`/post/${twitId}/like`)
+  //   .then((res) => {
+  //     if (res.data === "Liked") {
+  //       heart.src = "http://localhost:8003/like_btn.svg";
+  //     } else if (res.data === "Unliked") {
+  //       heart.src = "http://localhost:8003/white_heart.svg";
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
 }
 
-// function nextImg() {
-//   let nextSrc = document.getElementById(`history_${num + 1}`).src;
-//   let clickImg = document.getElementById("clicked_img");
-//   clickImg.src = nextSrc;
-// }
 async function toDataURL(url) {
   const blob = await fetch(url).then((res) => res.blob());
   return URL.createObjectURL(blob);
 }
-
-// function imgDownload() {
-//   let clickedSrc = document.getElementById("clicked_img").src;
-//   var img = new Image();
-//   img.crossOrigin = "Anonymous";
-//   img.id = "getshot";
-//   img.src = clickedSrc;
-//   document.body.appendChild(img);
-
-//   var a = document.createElement("a");
-//   var arSplitUrl = getshot.src.split("/");
-//   var nArLength = arSplitUrl.length;
-//   var arFileName = arSplitUrl[nArLength - 1];
-//   var arSplitFileName = arFileName.split(".");
-//   var sFileName = decodeURIComponent(arSplitFileName[0]);
-//   // sFileName = sFileName.replace(/image_/g, "");
-//   // alert(sFileName);
-//   // alert(arSplitFileName[1]);
-//   // a.href = getshot.src;
-//   a.href = `/${sFileName}.${arSplitFileName[1]}`;
-//   alert(a.href);
-//   a.download = `${sFileName}.${arSplitFileName[1]}`;
-//   a.click();
-//   document.body.removeChild(img);
-// }
-
-// var arSplitUrl   = sOriginImgUrl.split("/");    //   "/" 로 전체 url 을 나눈다
-//
-// var nArLength     = arSplitUrl.length;
-//
-// var arFileName         = arSplitUrl[nArLength-1];   // 나누어진 배열의 맨 끝이 파일명이다
-//
-//
-
-// var num = clickedSrc.lastIndexOf("/");
-// var file_name = decodeURIComponent(clickedSrc.substr(num + 1));
-// alert(num);
-// alert(file_name);
-// const a = document.createElement("a");
-// a.href = toDataURL(decodeURIComponent(clickedSrc));
-// a.download = file_name;
-// document.body.appendChild(a);
-// a.click();
-// document.body.removeChild(a);
-
-//
-// var arSplitFileName     = sImgUrl.split(".");   // 파일명을 다시 "." 로 나누면 파일이름과 확장자로 나뉜다
-//
-//
-//
-// var sFileName = arSplitFileName[0];         // 파일이름
-//
-// var sFileExtension = arSplitFileName[1]
-
-// var img = new Image();
-// img.crossOrigin = "Anonymous";
-// img.id = "getshot";
-// img.src = clickedSrc;
-// document.body.appendChild(img);
-
-// var a = document.createElement("a");
-// var arSplitUrl = getshot.src.split("/");
-// var nArLength = arSplitUrl.length;
-// var arFileName = arSplitUrl[nArLength - 1];
-// alert(arFileName);
-// var arSplitFileName = arFileName.split(".");
-// var sFileName = arSplitFileName[0];
-// a.href = `/${sFileName}.${arSplitFileName[1]}`;
-// a.download = `${sFileName}.${arSplitFileName[1]}`;
-// alert(a.href);
-// a.click();
-// document.body.removeChild(img);

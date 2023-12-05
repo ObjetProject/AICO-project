@@ -10,7 +10,6 @@
   
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://unpkg.com/@yaireo/tagify"></script>
-  <!--<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>-->
   <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
   <script>
     $(document).ready(function(){
@@ -36,7 +35,6 @@
         <input class="text_box img_file_show" id="file_show" placeholder="파일이름" readonly>
         <div class="file_delete">
           <a onclick="deleteFile()" class="file_delete_btn" id="file_delete_btn">
-            <!-- <img src="delete_btn.svg" alt=""> -->
             <img src="close_btn.svg" alt="" />
           </a>
         </div>
@@ -61,19 +59,6 @@
     <div class="generated_img">
       <img src="blank_generate.svg" alt="" id="picture" class="generated_pic">
     </div>
-
-    <!-- 이미지 표시 박스 (총 4개) -->
-    <!-- <div class="generate_picture_box">
-      <div class="generate_picture_double">
-        <img src="pic1.jpg" alt="" id="picture1" class="picture">
-        <img src="pic2.jpg" alt="" id="picture2" class="picture">
-      </div>
-      <div class="generate_picture_double">
-        <img src="pic3.jpg" alt="" id="picture3" class="picture">
-        <img src="pic1.jpg" alt="" id="picture4" class="picture">
-      </div>
-
-    </div> -->
   </div>
   <script src="../js/generate.js"></script>
 </body>

@@ -242,7 +242,7 @@ a {
 #clicked_img {
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 130%;
+  width: 130% !important;
   border-radius: 5px;
 }
 

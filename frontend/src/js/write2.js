@@ -1,26 +1,3 @@
-// window.onload = function () {
-//   // 파일 표시 기능
-//   let file = document.querySelector("#img");
-//   let show = document.querySelector("#choose_file");
-//   let deleteBtn = document.querySelector("#file_delete_btn");
-//   // let show = document.querySelector("#file_show");
-//   // let deleteBtn = document.querySelector("#file_delete_btn");
-//   file.addEventListener("change", function () {
-//     if (window.FileReader) {
-//       // modern browser
-//       var filename = $(this)[0].files[0].name;
-//     } else {
-//       // old IE
-//       var filename = $(this).val().split("/").pop().split("\\").pop(); // 파일명만 추출
-//     }
-
-//     // 화면 보이기, 추출한 파일명 삽입
-//     $(show).css("display", "block");
-//     $(deleteBtn).css("display", "block");
-//     $(this).siblings(show).val(filename);
-//   });
-// };
-
 function deleteHistory() {
   let historyForm = document.querySelector("#history_btn");
   historyForm.value = ``;
@@ -42,7 +19,6 @@ function deleteHistory() {
     $(show).css("display", "block");
     $(deleteBtn).css("display", "block");
     show.value = filename;
-    // $(this).siblings(show).val(filename);
 
     let previewImage = document.getElementById("img-preview");
     $(previewImage).css("display", "block");
@@ -51,8 +27,6 @@ function deleteHistory() {
 }
 
 function historyInput(imgSrc, imgNum) {
-  // alert(`img_num: ${imgNum}`);
-  // alert(`img_Src: ${imgSrc}`);
   closeHistoryPopup();
 
   // history url을 text로 전송하는 부분
@@ -65,7 +39,6 @@ function historyInput(imgSrc, imgNum) {
   // 화면 보이기, 추출한 파일명 삽입
   $(show).css("display", "block");
   $(deleteBtn).css("display", "block");
-  // $(this).siblings(show).val(filename);
   show.value = imgSrc;
 
   let previewImage = document.getElementById("img-preview");
@@ -89,14 +62,11 @@ function readImage(input) {
 
 function deleteFile() {
   let show = document.querySelector("#choose_file");
-  // let show = document.querySelector("#img-url");
   let deleteBtn = document.querySelector("#file_delete_btn");
   let previewImage = document.getElementById("img-preview");
-  // previewImage.src = '';
   show.value = "";
 
   $(previewImage).css("display", "none");
-  // $(deleteBtn).css('display', 'none');
 }
 
 function textareaSize() {
@@ -118,18 +88,6 @@ function textareaSize() {
   }
 }
 
-// function readURL(input) {
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//     reader.onload = function(e) {
-//       document.getElementById('preview').src = e.target.result;
-//     };
-//     reader.readAsDataURL(input.files[0]);
-//   } else {
-//     document.getElementById('preview').src = "";
-//   }
-// }
-
 function showWrite() {
   let write = document.querySelector("#twit-form");
   if ($(write).css("display") == "none") {
@@ -142,13 +100,9 @@ function showWrite() {
 function showHistory() {
   let history = document.querySelector(".callHistory");
 
-  // const fileLabel = document.createElement("label");
-  // fileLabel.for = `img`;
-
   if ($(history).css("display") == "none") {
     $(history).css("display", "flex");
   } else {
-    // deleteAllImages();
     $(history).css("display", "none");
   }
 }
@@ -163,8 +117,6 @@ async function fetchFourImages() {
 async function displayAllImages() {
   const images = await fetchFourImages();
   const container = document.getElementById("writeHistory");
-  // const fileLabel = document.createElement("label");
-  // fileLabel.for = `img`;
 
   images.forEach((image, idx) => {
     // 이미지를 표시할 img 태그 생성
@@ -177,8 +129,6 @@ async function displayAllImages() {
     imgElement.onclick = function () {
       historyInput(image.img_path, image.img_num);
     };
-    // alert(imgElement.src);
-    // fileLabel.appendChild(imgElement);
 
     // 이미지를 화면에 추가
     container.appendChild(imgElement);

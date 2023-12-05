@@ -19,7 +19,6 @@ window.onload = function () {
 
   file.addEventListener("change", function () {
     if (window.FileReader) {
-      // modern browser
       var filename = $(this)[0].files[0].name;
     } else {
       // old IE
@@ -60,21 +59,6 @@ function deleteFile() {
   $(show).css("display", "none");
   $(deleteBtn).css("display", "none");
 }
-
-/*
-function checkGenerate() {
-  let show = document.querySelector("#file_show").value;
-  let txt = document.querySelector("#generate_txt").value;
-  let style = document.querySelector("#tag").value;
-
-  if (show === '' && txt === ''&& style === '') {
-    alert(`요구사항을 입력하세요`);
-    return false;
-  }
-
-  return true;
-}
-*/
 
 const promptInput = document.querySelector("#generate_txt");
 const generatedImage = document.querySelector("#picture");
@@ -201,6 +185,7 @@ const STYLE_TAG = [
   "Oil pastel",
   "Digital Art",
   "comics",
+  "cartoons",
   "Of city",
   "red",
   "yellow",

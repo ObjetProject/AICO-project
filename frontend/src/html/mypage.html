@@ -12,6 +12,7 @@
   <script src="../js/main.js"></script>
   <script src="../js/mypage.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     $(document).ready(function(){
       $("#header").load("/html/header.html");
@@ -91,7 +92,7 @@
         // 이미지의 URL을 설정
         imgElement.src = image.img_path.replace(`#`,`%23`);
         imgElement.alt = `Image ${image.img_num}`;
-        imgElement.onclick = function(){showPopup(imgElement.src)};
+        imgElement.onclick = function(){showPopup(imgElement.src, image.img_num)};
         // 이미지를 화면에 추가
         historyContainer.appendChild(imgElement);
       });
@@ -211,9 +212,6 @@
           <!-- <img src="" alt="" class="picture"> -->
           <!--
           <img src="p1.png" alt="" class="picture">
-          <img src="p2.png" alt="" class="picture">
-          <img src="p3.png" alt="" class="picture">
-          <img src="p1.png" alt="" class="picture">
           -->
         </div>
         
@@ -227,12 +225,8 @@
         </div>
         
         <div class="four_img likes" id="likeImageContainer">
-          <!-- <img src="nodata2.svg" alt="" class="picture" id="like_nodata" style="cursor: default" > -->
           <!--
           <img src="p8.png" alt="" class="picture">
-          <img src="p7.png" alt="" class="picture">
-          <img src="p1.png" alt="" class="picture">
-          <img src="p6.png" alt="" class="picture">
           -->
         </div>
       </div>
@@ -247,9 +241,6 @@
         <div class="four_img post" id="postsImageContainer">
           <!--
           <img src="p6.png" alt="" class="picture">
-          <img src="p5.png" alt="" class="picture">
-          <img src="p4.png" alt="" class="picture">
-          <img src="p3.png" alt="" class="picture">
           -->
         </div>
       </div>
@@ -264,9 +255,6 @@
         <div class="four_img comment" id="commentsImageContainer">
           <!--
           <img src="p8.png" alt="" class="picture">
-          <img src="p1.png" alt="" class="picture">
-          <img src="p3.png" alt="" class="picture">
-          <img src="p4.png" alt="" class="picture">
           -->
         </div>
       </div>
@@ -282,7 +270,7 @@
         <img src="" alt="" id="clicked_img">
       </div>
       <div class="like_down_box">
-        <img class="img_click_icon white_heart" src="white_heart.svg" id="{{twit.id}}_heart" alt="" onclick="changeHeart('{{twit.id}}_heart');">
+        <!-- <img class="img_click_icon white_heart popup_heart" src="white_heart.svg" id="{{twit.id}}_heart" alt=""> -->
         <!-- <a href="" id="down_btn" download><img src="download_img.svg" alt="download"></a> -->
         <!-- <img class="img_click_icon download_img" src="download_img.svg" alt="" onclick="imgDownload('{{twit.img}}','{{twit.img}}')"> -->
       </div>
@@ -300,34 +288,4 @@
   
     </div>
   </div>
-
-
-
-
-  <!-- 팝업창 -->
-  <!-- <div id="popup_bg" class="popup_bg">
-    <img class="close" src="close_btn.svg" onclick="closePopup()">
-    <div id="popup" class="img_click_box">
-      <div class="img_and_next_btn">
-        <img src="" alt="" id="clicked_img">
-      </div>
-      <div class="like_down_box">
-        <img class="img_click_icon white_heart" src="white_heart.svg" id="{{twit.id}}_heart" alt="" onclick="changeHeart('{{twit.id}}_heart');">
-        <img class="img_click_icon download_img" src="download_img.svg" alt="" onclick="imgDownload()">
-      </div>
-      <div class="generate_txt_box">
-        <div class="generate_txt_style">
-          <p id="img_generating_txt">
-            내용입니다.내용입니다.내용입니다. <br>
-            #몽환적인 #몽환적인
-          </p>
-        </div>
-      </div>
-      <div class="copy_btn_box">
-        <button class="copy_btn" onclick="copyTxt()">Copy prompt</button>
-      </div>
-  
-    </div>
-  </div> -->
-  
 </body>

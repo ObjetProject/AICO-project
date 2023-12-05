@@ -23,7 +23,6 @@ hr {
 }
 
 .post_pop {
-  /* background-color: sandybrown; */
   margin: auto;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -85,7 +84,6 @@ hr {
 .contents_box {
   width: 50%;
   height: 100%;
-  /* background-color: lightpink; */
 }
 
 .writer_icon_name {
@@ -138,12 +136,31 @@ hr {
 
 .post_box {
   /* background-color: lightseagreen; */
-  height: 500px;
+  /* height: 500px; */
+  height: 350px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
+  /* background-color: lightpink; */
+}
+
+.post_box::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.post_box::-webkit-scrollbar-thumb {
+	background: #22A39F;
+  border-radius: 12px 12px 12px 12px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.post_box::-webkit-scrollbar-track {
+	background: #595959;
+  border-radius: 12px 12px 12px 12px;
 }
 
 .post {
@@ -153,11 +170,9 @@ hr {
 }
 
 .post_writer_icon_name {
-  /* background-color: #22A39F; */
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
 }
 
 .delete_comments {
@@ -189,6 +204,11 @@ hr {
   text-align: start;
   margin-left: 30px;
   line-height: 20px;
+  
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #F3EFE0;
+  font-weight: 150;
+  font-size: 17px;
 }
 
 .write_img_post_box {
@@ -196,16 +216,22 @@ hr {
   /* width: 100%; */
   display: flex;
   flex-direction: row;
-  /* background-color: red; */
 }
 
 .write_txt {
-  font-family: 'NanumGothic';
+  /* font-family: 'NanumGothic';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
-  color: rgba(243, 239, 224, 0.6);
+  color: rgba(243, 239, 224, 0.6); */
+
+  
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #F3EFE0;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 21px;
 
   width: 80%;
   height: 36px;
