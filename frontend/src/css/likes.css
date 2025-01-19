@@ -1,0 +1,59 @@
+#likes {
+  outline: 2px solid #22A39F99;
+}
+
+#imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  flex: 0 0 25%; /* Adjust the width as needed (25% for 4 images per row) */
+  box-sizing: border-box;
+  padding: 5px; /* Add some spacing between images */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+#mypage {
+  outline: none;
+}
+
+#history {
+  outline: none;
+}
+
+#post {
+  outline: none;
+}
+
+#comments {
+  outline: none;
+}
+
+#account {
+  outline: none;
+}
+
+#account:hover{
+  outline: 2px solid #22A39F99;
+}
+
+#mypage:hover{
+  outline: 2px solid #22A39F99;
+}
+
+#history:hover{
+  outline: 2px solid #22A39F99;
+}
+
+#post:hover{
+  outline: 2px solid #22A39F99;
+}
+
+#comments:hover{
+  outline: 2px solid #22A39F99;
+}

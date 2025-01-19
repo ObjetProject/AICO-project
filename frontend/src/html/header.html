@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_header</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/header.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    fetch('/loggedIn/user')
+      .then(response => response.json())
+      .then(data => {
+        const user = data.user;
+
+        const profileButton = document.getElementById('profileButton');
+
+        if (user) {
+          // 로그인O
+          profileButton.innerHTML = `<a href="mypage" class="login_user">${user.email}</a>`;
+        } else {
+          // 로그인X
+          profileButton.innerHTML = '<a href="login"><img src="login_signup_btn.svg" alt="프로필"></a>';
+        }
+      })
+      .catch(error => console.error('Error fetching user information:', error));
+  </script>
+</head>
+
+<body>
+  <div id="wrap">
+  <section class="info_section">
+    <div class="info_list">
+      <div class="logo">
+        <a href="/"><img src="logo2.svg" alt="로고2"></a>
+      </div>
+      <div class="profile" id="profileButton">
+        <!-- {% if not followingIdList.includes(twit.User.id) and twit.User.id !== user.id %}
+          <button class="twit-follow follow_btn">팔로우</button>
+        {% elif followingIdList.includes(twit.User.id) and twit.User.id !== user.id %}
+          <button class="twit-unfollow follow_btn">팔로우끊기</button>
+        {% endif %}login_signup_btn profile_circle-->
+        <!--<a href="login"><img src="login_signup_btn.svg" alt="프로필"></a>-->
+      </div>
+    </div>
+  </section>
+  <header class="header cfixed">
+    <nav class="nav">
+      <ul class="gbn">
+        <li><a href="generate">CREATE</a></li>
+        <li><a href="share">SHARE</a></li>
+        <li><a href="mypage">MY</a></li>
+        <li><a href="about">ABOUT</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+</body>
+
+</html>

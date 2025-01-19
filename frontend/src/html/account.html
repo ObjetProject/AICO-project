@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/mypage.css">
+  <link rel="stylesheet" href="../css/account.css">
+  <script src="../js/mypage.js"></script>
+  <script src="../js/account.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+      
+    });
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <!-- 카테고리(왼쪽의 mypage,history,account등)과 각 테마별 이미지 미리보기 박스 -->
+  <div class="category_and_preview_box">
+    <!-- 카테고리 선택 부분 -->
+    <div class="category_box">
+      <div class="category_group">
+        <!-- 사용자의 프로필 입력 부분(class="profile"의 img) -->
+        <div class="mypage_profile">
+          <!-- <img src="pic3.jpg" alt=""> -->
+          <h6>{{user.nick}}</h6>
+        </div>
+
+        <!-- 각 카테고리 버튼 부분(마이페이지,history,likes,write,계정) -->
+        <ul class="each_category_btn">
+          <a href="mypage"><li id="mypage">마이페이지</li></a>
+          <a href="history"><li id="history">History</li></a>
+          <a href="likes"><li id="likes">좋아요</li></a>
+          <a href="mypost"><li id="post">작성 글</li></a>
+          <a href="comment"><li id="comments">작성 댓글</li></a>
+          <a href="account"><li id="account">계정 관리</li></a>
+          <a id="logout" href="/auth/logout" class="btn"><li id="logout">로그아웃</li></a>
+        </ul>
+      </div>
+      
+      <!-- 햄버거버튼 부분 -->
+      <div class="hambuger_btn">
+        <div class="menu-trigger" onclick="hambuger()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 테마별 미리보기 이미지 부분 -->
+    <div class="preview_box">
+
+      <!-- history 부분(theme_and_moreBtn는 각 테마 이름과 더보기 버튼, four_img는 이미지들) -->
+      <div class="history_preview theme">
+        <div class="theme_and_moreBtn">
+          <h3>회원 정보</h3>
+        </div>
+
+        <form action="" method="post" onsubmit="" class="user_modify" name="user_modify">
+
+          <!-- 이름(닉네임) 부분 -->
+          <div class="user_nick">
+            <div class="guide_text">User Name</div>
+            <div class="user_name_text">{{user.nick}}</div>
+          </div>
+      
+          <!-- id 입력받는 부분 -->
+          <div class="user_id_input_box">
+            <div class="guide_text">User ID</div>
+            <input name="email" type="text" id="id" class="input_box" value="{{user.email}}">
+          </div>
+      
+          <!-- 비번 입력받는 부분 -->
+          <div class="user_password_input_box">
+            <div class="guide_text">Password</div>
+            <input name="password" type="password" id="pw" class="input_box">
+          </div>
+      
+          <!-- 비번 확인 부분 -->
+          <div class="user_password_input_box">
+            <div class="guide_text">Password check</div>
+            <input name="password_check_input" type="password" id="cpw" class="input_box">
+          </div>
+      
+          <!-- 회원가입 버튼_ 누르면 form 태그 실행  disabled = "true"-->
+          <div class="user_btn">
+            <input type="submit" value="수정" class="submit_btn" id="submit_btn">
+          </div>
+        </form>
+    </div>
+  </div>
+</body>

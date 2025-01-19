@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>write</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/write.css">
+  <script src="../js/write.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script>
+</head>
+
+<body>
+  <!-- <div id="header"></div> -->
+
+  <form action="" method="post" class="write_form" onsubmit="">
+    
+    <!-- 이미지 파일을 입력할 수 있는 부분 -->
+    <div class="generate_img_input_box">
+      <input class="text_box img_file_show" id="choose_file" placeholder="파일이름" readonly>
+      <div class="file_delete">
+        <a onclick="deleteFile()" class="file_delete_btn" id="file_delete_btn">
+          <img src="delete_btn.svg" alt="">
+        </a>
+      </div>
+      <div class="img_input_btn_box">
+        <label for="img_file" class="imp_input_btn">+ Upload image</label>
+      </div>
+      <input type="file" class="img_input" id="img_file">
+      <img class="preview" id="preview" src="">
+    </div>
+
+    <hr class="mid_line">
+
+    <!-- 게시글 입력 부분 -->
+    <div class="write_post_box">
+      <div class="write">
+        <textarea name="post_txt" id="post_txt" rows="1" class="text_box post_txt" placeholder="사과를 먹는 곰돌이"></textarea>
+      </div>
+      <div class="post_btn">
+        <input type="submit" value="upload" class="btn">
+      </div>
+    </div>
+
+  </form>
+
+
+
+</body>

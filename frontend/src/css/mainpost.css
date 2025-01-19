@@ -1,0 +1,158 @@
+/* body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background: #595959;
+  border-radius: 15px;
+  color: #F3EFE0;
+  text-align: center;
+  height: 1000px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+} */
+
+
+
+.before_btn {
+  width: 25px;
+  margin: 2px;
+  /* background-color: #22A39F; */
+}
+
+.img_and_next_btn {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: indianred; */
+}
+
+.lr_btn {
+  border: 0;
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lr_btn img {
+  width: 25px;
+  height: 25px;
+}
+
+.clicked_img {
+  width: 50%;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.like_down_box {
+  /* background-color: blue; */
+  width: 40%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.img_click_icon {
+  margin-right: 10px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.like_down_box img {
+  width: 20px;
+}
+
+.generate_txt_box {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  
+  display: flex;
+  justify-content: space-between;
+  /* background-color: violet; */
+}
+
+.writer_icon {
+  width: 35px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.generate_txt_style {
+  width: 90%;
+  background: #6E6E6E;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+}
+
+.generate_txt_style p {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 18px;
+  text-align: start;
+  padding: 5px;
+
+  color: rgba(243, 239, 224, 0.6);
+}
+
+.copy_btn_box {
+  width: 50%;
+  margin: 10px auto;
+}
+
+.copy_btn {
+  float: right;
+  width: 90px;
+  height: 35px;
+  background: #22A39F;
+  border-radius: 25px;
+
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  color: #F3EFE0;
+  border: 0px;
+  /* background-color: blueviolet; */
+}
+
+.copy_btn:active, .copy_btn:focus {
+  outline:none !important;
+  box-shadow:none !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

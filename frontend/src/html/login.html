@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/login.css">
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="title">AICO</div>
+  <div class="sub_title">AI create objet</div>
+
+  <form action="/auth/login" class="login_form" method="post">
+    <!-- id 입력하는 부분 -->
+    <div class="login_id_input_box">
+      <div class="guide_text">Username or email address</div>
+      <input id="email" name="email" type="text" class="input_box" required autofocus>
+    </div>
+
+    <!-- 비밀번호 입력하는 부분 -->
+    <div class="login_password_input_box">
+      <div class="login_password_guide_box">
+        <div class="guide_text">Password</div>
+        <div><a class="guide_forgot" href="">Forget password?</a></div>
+      </div>
+      <input id="password" name="password" type="password" class="input_box" required>
+    </div>
+
+    <!-- 로그인 버튼 _ 클릭시 form 태그 실행 -->
+    <div class="login_btn">
+      <a id="kakao" href="/auth/kakao" class="btn kakaoBtn">카카오톡</a>
+      <button id="login" type="submit" name="" class="btn loginBtn">sign in</button>
+    </div>
+  </form>
+
+  <!-- 회원가입창으로 이동하는 버튼 -->
+  <div class="signup_btn_box">
+    <a href="signup" class="signup_btn">
+      <div class="signup_btn_txt1">New to AICO?</div>
+      <div class="signup_btn_txt2">Create an account.</div>
+    </a>
+  </div>
+
+</body>

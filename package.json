@@ -1,0 +1,37 @@
+{
+  "name": "aico-project",
+  "version": "1.0.0",
+  "description": "- main : 최종적으로 확인된 부분만 합칠 브랜치\r - develop : main으로 가기 전 백엔드와 프론트엔드의 협업 test를 위한 브랜치!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@yaireo/tagify": "^4.17.8",
+    "aws-sdk": "^2.1442.0",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "form-data": "^4.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.3.2",
+    "nodemon": "^2.0.22",
+    "nunjucks": "^3.2.4",
+    "openai": "^3.2.1",
+    "passport": "^0.6.0",
+    "passport-kakao": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.31.1",
+    "sequelize-cli": "^6.6.0"
+  }
+}

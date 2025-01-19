@@ -1,0 +1,356 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #434242;
+  color: #F3EFE0;
+  text-align: center;
+  height: 1000px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  padding-bottom: 50px;
+  /* 드래그 막기 */
+  /* -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none */
+}
+
+.search_box {
+  margin: auto;
+  margin-top: 40px;
+  width: 80%;
+  height: 45px;
+
+}
+
+.search_form {
+  background-color: #595959;
+  margin: auto;
+  width: 100%;
+  height: 45px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_icon {
+  width: 3.5%;
+  margin: auto;
+}
+
+.search_txt {
+  border: none;
+  overflow: auto;
+  background: transparent;
+  color: #F3EFE0;
+  width: 70%;
+}
+
+.search_txt:focus {
+  outline: none;
+}
+
+.search_btn {
+  width: 20%;
+  margin-left: 0.3em;
+  color: #F3EFE0;
+  background: #22A39F;
+  border: none;
+  border-radius: 25px;
+}
+
+
+
+
+/* ---------------- */
+.sort_write_box {
+  margin: auto;
+  padding-top: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.sort_btn {
+  /* background-color: #22A39F; */
+  width: 100px;
+  margin-right: 20px;
+}
+.dropdown{
+  position : relative;
+  display : inline-block;
+}
+.dropbtn_content {
+  color: #F3EFE0;
+}
+.dropbtn{  
+  background: #434242;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  width: 100%;
+  display : block;
+  text-align: center;
+  cursor : pointer;
+  z-index :1;
+  position : relative;
+}
+.dropdown-content{
+  display : none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  align-items: center;
+  text-align: center;
+
+  color: #F3EFE0;
+  overflow : scroll;
+  width: 100px;
+}
+.dropdown-content::-webkit-scrollbar{
+  display: none;
+  /* width : 5px;
+  height : 10px; */
+}
+/* .dropdown-content::-webkit-scrollbar-thumb{
+  border-radius : 2px;
+  background-color :rgb(194, 194, 194)
+} */
+
+.dropdown-content div{
+  text-decoration : none;
+  height: 30px;
+  border: 1px solid #F3EFE0;
+  border-radius: 3px;
+  align-items: center;
+  display : flex;
+  justify-content : center;
+  align-items : center;
+}
+/* .dropdown-content div:hover{
+  background-color: rgb(226, 226, 226);
+} */
+
+.dropdown-content.show{
+  display : block;
+}
+
+/* ---------------- */
+
+.wirte_btn {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  
+}
+
+.write {
+  text-decoration: none;
+  color: #F3EFE0;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.share_list_box {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1.2rem;
+  /* background-color: indianred; */
+}
+
+.four_contents {
+  width: 100%;
+  /* margin-left: 5%; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  /* justify-content: center; */
+  /* background-color: #22A39F; */
+}
+
+.card {
+  width: 23%;
+  margin: 1%;
+  /* height: 50%; */
+  background: #595959;
+  border-radius: 5px;
+}
+
+.card_profile_box {
+  /* background-color: #22A39F; */
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  overflow:hidden;
+  background: #6E6E6E;
+  border-radius: 5px;
+
+}
+
+.profile_img {
+  margin-left: 10%;
+}
+
+.prifile_name {
+  margin-left: 5%;
+  /* background-color: palegreen; */
+}
+
+.prifile_name a {
+  text-decoration-line: none;
+  color: #F3EFE0;
+}
+
+.follow_btn {
+  cursor: pointer;
+  margin-left: 35px;
+  border-radius: 5px;
+  border: none;
+  /* color: #F3EFE0; */
+}
+
+.twit-follow {
+  background-color: #F3EFE0;
+  
+}
+
+/* .twit-unfollow {
+
+} */
+
+.card-img-top {
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  cursor: pointer;
+  /* background-color: yellow; */
+}
+
+.card_icons_box {
+  margin-top: 3%;
+  height: 25px;
+  display: flex;
+  justify-content : right;
+}
+
+.card_icons {
+  margin-right: 4%;
+  display: flex;
+  justify-content : center;
+}
+
+.card_icon {
+  margin-left: 6%;
+  width: 25%;
+  cursor: pointer;
+  /* background-color: blue; */
+}
+
+.card_icon:first-child {
+  margin-left: 0px;
+  /* background-color: yellow; */
+  
+}
+
+.card_text_box {
+  /* background-color: chocolate; */
+  height: 100px;
+  display: flex;
+  justify-content : center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+.card_text {
+  width: 90%;
+  max-height: 60px;
+  /* background-color: #22A39F; */
+  text-align: left;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  
+  color: rgba(243, 239, 224, 0.6);
+  
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.delete {
+  text-decoration: none;
+  color: #F3EFE0;
+  align-items: center;
+  text-align: center;
+  background: #595959;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.delete:focus{ 	
+  border: none;
+  outline:none;
+}
+
+.popup_bg {
+  display: none;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 110px;
+  left: 0;
+  width: 100%;
+  height: 300%;
+}
+
+#history_btn {
+  visibility:hidden;
+}
+
+.close {
+  position: absolute;
+  top: 70px;
+  right: 10%;
+  cursor: pointer;
+}
+
+.post_pop {
+  background-color: #6E6E6E;
+  margin: 20px;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+/* pc용 css */
+@media all and (min-width:1032px) {
+body {
+  height: 1500px;
+}
+
+.search_box {
+  width: 496px;
+  margin: 45px auto;
+}
+
+.search_form {
+  width: 100%;
+}
+
+.popup_bg {
+  position: absolute;
+  top: 70px;
+}
+
+.post_pop {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+}

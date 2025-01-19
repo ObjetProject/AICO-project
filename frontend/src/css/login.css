@@ -1,0 +1,150 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #434242;
+  color: #F3EFE0;
+  text-align: center;
+  height: 1000px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  /* 드래그 막기 */
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  margin-top: 50px;
+  font-weight: 800;
+  font-size: 100px;
+  line-height: 100px;
+  letter-spacing: 0.15em;
+}
+
+.sub_title {
+  margin-top: 25px;
+}
+
+.login_form {
+  margin-top: 40px;
+  background: rgba(89, 89, 89, 0.6);
+  border: 1px solid #F3EFE0;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+}
+
+.login_id_input_box {
+  width: 90%;
+}
+ 
+.login_password_input_box {
+  width: 90%;
+  margin-top: 32px;
+}
+
+.input_box {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  color: #F3EFE0;
+  background-color: #434242;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+  width: 100%;
+  height: 39px;
+  padding: 0px 10px 0px 10px;
+}
+
+.login_password_guide_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.guide_text {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+
+.guide_forgot {
+  color: #22A39F;
+}
+
+.login_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 90%;
+}
+
+.btn {
+  /* text-align: center; */
+  background: #22A39F;
+  color: #434242;
+  box-shadow: 0px 0px 4px #595959;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 39px;
+  width: 40%;
+}
+
+.signup_btn_box {
+  height: 45px;
+  margin-top: 26px;
+  background: #434242;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup_btn {
+  justify-content: center;
+  display: flex;
+}
+
+.signup_btn_txt1 {
+  margin-right: 5px;
+  color: #F3EFE0;
+}
+
+.signup_btn_txt2 {
+  color: #22A39F;
+}
+
+/* pc용 css */
+@media all and (min-width:1032px) {
+body {
+  height: 1500px;
+}
+
+.title {
+  margin-top: 100px;
+}
+
+.login_form {
+  width: 496px;
+  margin: 45px auto;
+  
+}
+
+.signup_btn_box {
+  width: 520px;
+  margin: -20px auto;
+}
+}

@@ -1,0 +1,280 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #434242;
+  color: #F3EFE0;
+  height: 1000px;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.generate_all {
+  display: flex;
+  flex-direction: column;
+}
+
+.generate_form {
+  margin-top: 40px;
+  background: rgba(89, 89, 89, 0.6);
+  border: 1px solid #F3EFE0;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+}
+
+.text_box, .tagify {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #F3EFE0;
+  background-color: #434242;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+}
+
+.guide_text {
+  text-align: left;
+  margin-bottom: 10px;
+  /* background-color: bisque; */
+}
+
+.generate_txt_input {
+  width: 90%;
+  /* padding: 0px 10px 0px 10px; */
+}
+
+.generate_txt {
+  width: 100%;
+  resize: vertical;
+  padding: 10px;
+  /* height: 36px; */
+  min-height: 36px;
+  max-height: 300px;
+  line-height: 20px;
+  overflow: hidden;
+  /* background-color: #22A39F; */
+}
+
+.generate_txt::-webkit-scrollbar {
+  width: 10px;
+  background-color: none;
+}
+
+.generate_txt::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #22A39F;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.generate_txt::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: #434242;
+  border-radius: 15px;
+}
+
+.generate_img_input_box {
+  margin-top: 10px;
+  width: 90%;
+  /* background-color: #22A39F; */
+  display: flex;
+  flex-direction: column;
+}
+
+.img_file_show {
+  width: 93%;
+  height: 50px;
+  display: none;
+}
+
+.file_delete {
+  height: 0em;
+  display: flex;
+  justify-content: end;
+}
+
+.file_delete_btn {
+  /* background-color: indianred; */
+  position: relative;
+  top: -30px;
+  text-decoration: none;
+  display: none;
+}
+
+.file_delete_btn img {
+  width: 13px;
+}
+
+.img_input_btn_box {
+ /* background-color: #22A39F; */
+ display: flex;
+ justify-content: end;
+}
+
+.imp_input_btn {
+  color: #F3EFE0;
+  /* background-color: salmon; */
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.generate_img_input_box input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.img_input {
+  color: indianred;
+}
+
+.generate_styletag_box {
+  width: 90%;
+  margin-top: 40px;
+  /* background-color: sandybrown; */
+}
+
+/* 해시태그 부분 */
+.tagify{
+  font-family: 'NanumGothic';
+  font-weight: 800;
+  font-size: 16px;
+  width: 100%;
+  color: #F3EFE0;
+  /* max-width: 700px; */
+}
+
+.tags-look .tagify__dropdown__item{
+  display: inline-block;
+  border-radius: 3px;
+  padding: .3em .5em;
+  /* border: 1px solid #CCC; */
+  background: #F3EFE0;
+  margin: .2em;
+  font-size: .85em;
+  color: #434242;
+  transition: 0s;
+}
+
+.tags-look .tagify__dropdown__item--active{
+  color: black;
+}
+
+.tags-look .tagify__dropdown__item:hover{
+  background: #22A39F;
+  /* border-color: gold; */
+}
+
+.generate_btn {
+  margin-top: 40px;
+  width: 90%;
+}
+
+.btn {
+  background: #22A39F;
+  color: #434242;
+  box-shadow: 0px 0px 4px #595959;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  height: 39px;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.generated_img {
+  margin-top: 40px;
+  width: 80%;
+  margin: 45px auto;
+  display: flex;
+  align-items: center;
+  /* background-color: yellowgreen; */
+  /* width: 90%; */
+}
+
+.generated_pic {
+  width: 90%;
+  margin: auto;
+  border-radius: 5px;
+}
+
+
+.generate_picture_box {
+  /* background-color: yellow; */
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.generate_picture_double {
+  /* background-color: palevioletred; */
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  /* padding: 10px; */
+}
+
+.picture {
+  /* background-color: tomato;
+  border: 1px solid rebeccapurple; */
+  width: 50%;
+  margin: auto;
+}
+
+.picture:first-child {
+  margin-right: 2%;
+}
+
+/* pc용 css */
+@media all and (min-width:1032px) {
+body {
+  height: 1500px;
+}
+
+.generate_all {
+  flex-direction: row;
+  margin: auto;
+  width: 80%;
+  /* background-color: tan; */
+  /* align-items: center; */
+}
+
+.generate_form {
+  background: none;
+  width: 400px;
+  /* width: 40%; */
+  /* height: 430px; */
+  margin: 45px auto;
+  border: none;
+}
+
+.btn {
+  width: 30%;
+  float: right;
+}
+
+.generated_img {
+  width: 400px;
+  width: 40%;
+  margin: 45px auto;
+  /* background-color: blue; */
+}
+
+.generate_picture_box {
+  width: 400px;
+  margin: 45px auto;
+  /* margin-left: 50px; */
+}
+}

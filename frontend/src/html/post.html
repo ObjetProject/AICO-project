@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/post.css">
+  <script src="../js/post.js"></script>
+  <script src="../js/share2.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <!-- <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script> -->
+</head>
+
+<body>
+  <!-- <div id="header"></div> -->
+  <div class="post_pop">
+    <div class="post_img_box">
+      <img class="post_img" src="pic1.jpg" alt="">
+      
+      <div class="post_icon_box">
+        <div class="card_icons">
+          <img class="card_icon white_heart" src="white_heart.svg" id="{{twit.id}}_heart" alt="" onclick="changeHeart('{{twit.id}}_heart');">
+          <img class="card_icon download_img" src="download_img.svg" alt="" onclick="imgDownload('{{twit.img}}','{{twit.img}}')">
+          <!-- <a href="{{twit.img}}" onclick="javascript:imgDownload(this.src, 'logo.png')"></a> -->
+        </div>
+        <!-- <button class="post_icon white_heart">
+          <img src="unlike_btn.svg" alt="">
+        </button>
+        <button class="post_icon download_btn">
+          <img src="download_btn.svg" alt="">
+        </button> -->
+      </div>
+    </div>
+    <div class="contents_box">
+      <!-- 게시물 공간 -->
+      <div class="contents">
+        <div class="writer_icon_name">
+          <img class="writer_icon" src="profile_circle.svg">
+          <div class="writer_name">
+              닉네임
+          </div>
+          {% if not followingIdList.includes(twit.User.id) and twit.User.id !== user.id %}
+            <button class="twit-follow follow_btn">팔로우</button>
+          {% elif followingIdList.includes(twit.User.id) and twit.User.id !== user.id %}
+            <button class="twit-unfollow follow_btn">팔로우끊기</button>
+          {% endif %}
+        </div>
+        <div class="writer_contents_style">
+          <div class="contents_text">
+            정장을 입은 고양이야.
+          </div>
+          <hr>
+          <div class="contents_style">
+            <div class="img_style">#갈색</div>
+            <div class="img_style">#고양이</div>
+            <div class="img_style">#고전적인</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 댓글 공간 -->
+      <ul class="post_box">
+        <li class="post">
+          <div class="post_writer_icon_name">
+            <img class="post_icon" src="profile_circle.svg">
+            <div class="post_name">
+                댓글 닉네임
+            </div>
+          </div>
+          <div class="post_txt">
+            귀여워요. <br> 좋아요.
+          </div>
+        </li>
+        <li class="post">
+          <div class="post_writer_icon_name">
+            <img class="post_icon" src="profile_circle.svg">
+            <div class="post_name">
+                댓글 닉네임
+            </div>
+          </div>
+          <div class="post_txt">
+            공감합니다. <br> 좋아요.
+          </div>
+        </li>
+        <li class="post">
+          <div class="post_writer_icon_name">
+            <img class="post_icon" src="profile_circle.svg">
+            <div class="post_name">
+                댓글 닉네임
+            </div>
+          </div>
+          <div class="post_txt">
+            너무 마음에 들어요. <br> 좋아요.
+          </div>
+        </li>
+      </ul>
+
+      <!-- 댓글 입력란 -->
+      <form action="" method="post" class="write_post_box">
+        <textarea id="write_txt" rows="1" class="write_txt" placeholder="댓글을 입력하세요"></textarea>
+        <button class="post_btn" type="submit">
+          <img src="send_icon.svg" alt="">
+        </button>
+      </form>
+
+
+    </div>
+  </div>
+  
+
+</body>

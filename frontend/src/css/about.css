@@ -1,0 +1,114 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #434242;
+  color: #F3EFE0;
+  text-align: center;
+  height: 1200px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  /* 드래그 막기 */
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+.title {
+  margin-top: 50px;
+  font-weight: 800;
+  font-size: 100px;
+  line-height: 100px;
+  letter-spacing: 0.15em;
+}
+
+.sub_title {
+  margin: auto;
+  margin-top: 35px;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+
+  color: #F3EFE0;
+
+}
+
+.all_box {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+}
+
+.each_box {
+  /* text-align: left;
+  margin-top: 35px;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+
+  color: #F3EFE0; */
+
+  /* justify-content: left; */
+}
+
+.each_title {
+  margin: 20px;
+  padding-left: 10px;
+  font-weight: 250;
+  font-size: 40px;
+  line-height: 60px;
+  letter-spacing: 0.15em;
+  text-align: left;
+}
+
+.color_show {
+  width: 90%;
+  max-height: 100px;
+}
+
+.sub {
+  height: 100px;
+  padding: 15px;
+  margin: 30px;
+  background: #6E6E6E;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+}
+
+.team_box {
+  /* text-align: left;
+  margin-top: 35px;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+
+  color: #F3EFE0; */
+}
+
+.team {
+  margin: auto;
+  width: 90%;
+  text-align: left;
+  margin-top: 35px;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+
+  color: #F3EFE0;
+}
+/* pc용 css */
+@media all and (min-width:1032px) {
+  
+
+}

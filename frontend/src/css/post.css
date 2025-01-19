@@ -1,0 +1,263 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background: #595959;
+  color: #F3EFE0;
+  text-align: center;
+  height: 1000px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+hr {
+  border: 1px solid rgba(243, 239, 224, 0.3);
+}
+
+.post_pop {
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post_img_box {
+  width: 45%;
+}
+
+.post_img {
+  width: 80%;
+  border-radius: 15px;
+}
+
+.post_icon_box {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.card_icons {
+  margin-right: 5px;
+  border: 0;
+  background-color: transparent;
+  /* background-color: cadetblue; */
+  cursor: pointer;
+}
+
+.card_icons img {
+  width: 20px;
+}
+
+.card_icon {
+  margin: 6px;
+}
+/* .post_icon_box {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.post_icon {
+  margin-right: 5px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.post_icon img {
+  width: 20px;
+} */
+
+.contents_box {
+  width: 50%;
+  height: 100%;
+}
+
+.writer_icon_name {
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: row;
+}
+
+.writer_icon, .post_icon {
+  width: 35px;
+  border-radius: 100%;
+}
+
+
+
+.follow_btn {
+  margin: auto;
+  margin-left: 20px;
+  height: 25px;
+}
+
+.writer_contents_style {
+  /* width: 50%; */
+  margin-top: 10px;
+  background: #6E6E6E;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 15px;
+  text-align: start;
+}
+
+.contents_text{
+  padding: 3%;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.contents_style {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img_style {
+  padding: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* color: black; */
+}
+
+.post_box {
+  /* background-color: lightseagreen; */
+  /* height: 500px; */
+  height: 350px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  overflow-x: hidden;
+  /* background-color: lightpink; */
+}
+
+.post_box::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.post_box::-webkit-scrollbar-thumb {
+	background: #22A39F;
+  border-radius: 12px 12px 12px 12px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.post_box::-webkit-scrollbar-track {
+	background: #595959;
+  border-radius: 12px 12px 12px 12px;
+}
+
+.post {
+  /* background-color: greenyellow; */
+  margin-left: -30px;
+  width: 90%;
+}
+
+.post_writer_icon_name {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete_comments {
+  width: 16px;
+  cursor: pointer;
+}
+
+.post_name {
+  width: 90%;
+}
+
+.writer_name, .post_name{
+  /* background-color: greenyellow; */
+  margin-left: 15px;
+  justify-content: flex-start;
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.img_post_txt {
+  background-color: #595959;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: start;
+  margin-left: 30px;
+  line-height: 20px;
+  
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #F3EFE0;
+  font-weight: 150;
+  font-size: 17px;
+}
+
+.write_img_post_box {
+  margin-top: 15px;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+}
+
+.write_txt {
+  /* font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(243, 239, 224, 0.6); */
+
+  
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #F3EFE0;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 21px;
+
+  width: 80%;
+  height: 36px;
+  resize: none;
+  padding: 10px;
+  padding-right: 20px;
+  
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid #F3EFE0;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.write_txt:focus {
+  outline: none;
+}
+
+.post_img_btn {
+  width: 15%;
+  margin-top: -2px;
+  color: #F3EFE0;
+  cursor: pointer;
+  height: 60px;
+  text-align: center;
+  background: #22A39F;
+  border: none;
+  border-radius: 0px 15px 15px 0px;
+}
+

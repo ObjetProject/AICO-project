@@ -1,0 +1,265 @@
+/* .picture {
+  width: 90%;
+  margin: 5px auto;
+  border-radius: 3px;
+  cursor: pointer;
+} */
+
+.callHistory {
+  display: none;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 300%;
+}
+
+.history_list {
+  background-color: #6E6E6E;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 150px;
+  padding-top: 20px;
+  border-radius: 15px;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+.history_img {
+  /* width: 90%; */
+  /* background-color: #22A39F; */
+  /* padding: 15px; */
+  
+  width: 23%;
+  margin: 1%;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.history_list img:hover {
+  /* outline: 1% solid #22A39F99; */
+  transform: scale(1.05);
+}
+
+
+.write_form {
+  width: 90%;
+  height: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  justify-content: space-between;
+  background: #595959;
+  border-radius: 15px;
+  display: none;
+}
+
+.mid_line {
+  height: 30%;
+  margin: 10px;
+  border: 2px solid #22A39F;
+  border-radius: 3px;
+}
+
+.generate_img_input_box {
+  margin: 10px;
+  width: 50%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+}
+
+.img_file_show {
+  width: 80%;
+  height: 30px;
+  cursor: default;
+  /* display: none; */
+}
+
+.file_delete {
+  /* height: 0em; */
+  display: flex;
+  justify-content: end;
+  
+}
+
+.file_delete_btn {
+  /* background-color: indianred; */
+  position: relative;
+  top: -20px;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 0;
+  /* display: none; */
+}
+
+.file_delete_btn img {
+  width: 13px;
+  /* z-index: -10; */
+}
+
+.img_input_btn_box {
+ /* background-color: #22A39F; */
+ display: flex;
+ flex-direction: row;
+ justify-content: end;
+ /* padding-bottom: 10px; */
+}
+
+.img_input_btn_box div {
+  /* border: 1px solid #F3EFE0; */
+  margin-right: 10px;
+  cursor: pointer;
+}
+/* .inputType {
+  margin: 5px;
+  border: 1px solid #F3EFE0;
+  width: 150px;
+  height: 35px;
+} */
+
+.imp_input_btn {
+  color: #F3EFE0;
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.generate_img_input_box input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+/* .img_input {
+  color: indianred;
+} */
+
+.preview {
+  width: 50%;
+  margin: auto;
+  display: none;
+  /* background-color: red; */
+}
+
+.write_post_box {
+  width: 60%;
+  height: 90%;
+  margin: 10px;
+  /* display: flex;
+  flex-direction: column; */
+  /* background-color: red; */
+}
+
+.write {
+  width: 90%;
+  height: 50%;
+  margin: auto;
+  /* padding: 0px 10px 0px 10px; */
+}
+
+.text_box {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #F3EFE0;
+  background-color: #434242;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 10px;
+}
+
+.img_file_show:focus {
+  outline: none;
+}
+
+.post_txt {
+  width: 95%;
+  height: 90%;
+  resize: vertical;
+  padding: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px; */
+  /* height: 36px; */
+  min-height: 36px;
+  max-height: 300px;
+  line-height: 20px;
+  overflow: hidden;
+
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #F3EFE0;
+  background-color: #434242;
+  border: 1px solid rgba(243, 239, 224, 0.3);
+  border-radius: 10px;
+  /* background-color: red; */
+}
+
+.post_txt::-webkit-scrollbar {
+  width: 10px;
+  background-color: none;
+}
+
+.post_txt::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #22A39F;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.post_txt::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: #434242;
+  border-radius: 10px;
+}
+
+
+.post_btn {
+  width: 20%;
+  float: right;
+  margin: 10px;
+}
+
+.btn {
+  background: #22A39F;
+  color: #F3EFE0;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  height: 39px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* pc용 css */
+@media all and (min-width:1032px) {
+  body {
+    height: 1500px;
+  }
+  
+  .write_form {
+    background: none;
+    width: 1000px;
+    /* height: 430px; */
+    margin: 45px auto;
+    border: none;
+  }
+  
+}
+  

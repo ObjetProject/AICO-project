@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 검색 부분 -->
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_share</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/share.css">
+  <script src="../js/share.js"></script>
+  <script src="../js/post.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <!-- 검색 부분 -->
+  <div class="search_box">
+    <!-- 일단 구글 검색되게 함_이후에 데베 정보 찾는거로 바꾸기 -->
+    <form class="search_form" action="https://www.google.com/search" method="GET">
+      <img class="search_icon" src="search_icon.svg" alt="">
+      <input name="q" class="search_txt" type="text" placeholder="Search for an image">
+      <button class="search_btn" type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- 정렬 버튼 -->
+  <div class="sort_write_box">
+    <div class="sort_btn">
+      <button class="dropbtn" onclick="dropdown()">
+        <span class="dropbtn_content">Sort</span>
+        <span class="dropbtn_click"><img src="sort_dropdown_btn.svg" alt=""></span>
+      </button>
+      <!-- 정렬할 기준 -->
+      <div class="dropdown-content">
+        <div class="sort_by" onclick="showMenu(this.innerText)">날짜</div>
+        <div class="sort_by" onclick="showMenu(this.innerText)">좋아요</div>
+      </div>
+    </div>
+    <div class="wirte_btn">
+      <a href="write" class="write" onClick="">글쓰기 <img src="share_write_btn.svg" alt=""></a>
+    </div>
+  </div>
+  
+  <!-- 게시물 전체 부분 -->
+  <div class="share_list_box">
+    <!-- 게시물 4개(한 줄) 묶음 -->
+    <div class="four_contents">
+
+      <!-- 개별 게시물 _ class명 card-->
+      <div class="card">
+        <div class="card_profile_box">
+
+          <!-- 작성자의 프로필 이미지 -->
+          <div class="profile_img">
+            <a href="#"><img src="profile_circle.svg" alt="프로필"></a>
+          </div>
+
+          <!-- 작성자 이름 -->
+          <div class="prifile_name">
+            <a href="#"><h3>cat_master</h3></a>
+          </div>
+        </div>
+
+        <!-- 게시하는 이미지 -->
+        <img src="pic1.jpg" class="card-img-top" alt="..." onclick="showPopup();">
+        
+        <!-- 아이콘 및 게시글 미리보이는 부분 -->
+        <div class="card-body">
+          <div class="card_icons_box">
+            <div class="card_icons">
+              <img class="card_icon white_heart" src="white_heart.svg" alt="">
+              <img class="card_icon download_img" src="download_img.svg" alt="">
+              <img class="card_icon comment_icon" src="comment_icon.svg" alt="">
+            </div>
+          </div>
+
+          <div class="card_text_box">
+            <p class="card_text">
+              고양이 대장님이다. <br>
+              양복도 잘 어울리는 대장냥dddddddddddddddddddddddddddddddd
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card_profile_box">
+          <div class="profile_img">
+            <a href="#"><img src="profile_circle.svg" alt="프로필"></a>
+          </div>
+          <div class="prifile_name">
+            <a href="#"><h3>pro_grass</h3></a>
+          </div>
+        </div>
+        <img src="pic2.jpg" class="card-img-top" alt="..." onclick="showPopup();">
+        <div class="card-body">
+          <div class="card_icons_box">
+            <div class="card_icons">
+              <img class="card_icon white_heart" src="white_heart.svg" alt="">
+              <img class="card_icon download_img" src="download_img.svg" alt="">
+              <img class="card_icon comment_icon" src="comment_icon.svg" alt="">
+            </div>
+          </div>
+
+          <div class="card_text_box">
+            <p class="card_text">
+              햇살이 드는 책방 <br>
+              책이 많다<br>
+              one two two
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card_profile_box">
+          <div class="profile_img">
+            <a href="#"><img src="profile_circle.svg" alt="프로필"></a>
+          </div>
+          <div class="prifile_name">
+            <a href="#"><h3>btf_sky</h3></a>
+          </div>
+        </div>
+        <img src="pic3.jpg" class="card-img-top" alt="..." onclick="showPopup();">
+        <div class="card-body">
+          <div class="card_icons_box">
+            <div class="card_icons">
+              <img class="card_icon white_heart" src="white_heart.svg" alt="">
+              <img class="card_icon download_img" src="download_img.svg" alt="">
+              <img class="card_icon comment_icon" src="comment_icon.svg" alt="">
+            </div>
+          </div>
+
+          <div class="card_text_box">
+            <p class="card_text">
+              꼬마 이끼 집이다. <br>
+              귀엽다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card_profile_box">
+          <div class="profile_img">
+            <a href="#"><img src="profile_circle.svg" alt="프로필"></a>
+          </div>
+          <div class="prifile_name">
+            <a href="#"><h3>hiphan_pika</h3></a>
+          </div>
+        </div>
+        <img src="pic1.jpg" class="card-img-top" alt="..." onclick="showPopup();">
+        <div class="card-body">
+          <div class="card_icons_box">
+            <div class="card_icons">
+              <img class="card_icon white_heart" src="white_heart.svg" alt="">
+              <img class="card_icon download_img" src="download_img.svg" alt="">
+              <img class="card_icon comment_icon" src="comment_icon.svg" alt="">
+            </div>
+          </div>
+
+          <div class="card_text_box">
+            <p class="card_text">
+              고양이 대장님이다. <br>
+              양복도 잘 어울리는 대장냥
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

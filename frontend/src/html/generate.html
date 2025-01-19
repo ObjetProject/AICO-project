@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_generate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/generate.css">
+  
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://unpkg.com/@yaireo/tagify"></script>
+  <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="generate_all">
+    <!-- 요구사항 입력 박스 -->
+    <form action="generate" method="post" class="generate_form">
+
+      <!-- 요구사항을 텍스트로 입력하는 부분 -->
+      <div class="generate_txt_input">
+        <div class="guide_text">Describe your image</div>
+        <textarea name="generate_txt" id="generate_txt" rows="1" class="text_box generate_txt" placeholder="사과를 먹는 곰돌이" onkeyup="textareaSize()" onkeydown="textareaSize()"></textarea>
+      </div>
+
+      <!-- 이미지 파일을 입력할 수 있는 부분 -->
+      <div class="generate_img_input_box">
+        <input class="text_box img_file_show" id="file_show" placeholder="파일이름" readonly>
+        <div class="file_delete">
+          <a onclick="deleteFile()" class="file_delete_btn" id="file_delete_btn">
+            <img src="close_btn.svg" alt="" />
+          </a>
+        </div>
+        <div class="img_input_btn_box">
+          <label for="img_file" class="imp_input_btn">+ Upload image</label>
+        </div>
+        <input type="file" class="img_input" id="img_file">
+      </div>
+
+      <!-- 스타일 태그 선택하는 부분_ 리스트 다시 정리해야함(크롤링?) -->
+      <div class="generate_styletag_box">
+        <div class="guide_text">Choose your style tag</div>
+        <input placeholder="" id="tag" name="tags">
+      </div>
+      
+      <!-- 생성버튼_누르면 form 태그 실행됨 -->
+      <div class="generate_btn">
+        <input type="submit" value="generate" class="btn">
+      </div>
+    </form>
+
+    <div class="generated_img">
+      <img src="blank_generate.svg" alt="" id="picture" class="generated_pic">
+    </div>
+  </div>
+  <script src="../js/generate.js"></script>
+</body>
+  
+</html>

@@ -1,0 +1,142 @@
+/* 모바일용 css */
+#wrap {
+  font-family: 'Nanum Gothic', sans-serif;
+  letter-spacing: 3.75px;
+  font-size: 16px;
+  height: 110px;
+  margin: -10px -10px 0 -10px;
+  background-color: #222222;
+}
+
+.info_section {
+  order: 1;
+  width: 100%;
+}
+
+.info_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 18.75%;
+  padding-right: 18.75%;
+  /* padding-top: 8px; */
+}
+
+.logo {
+  height: 32px;
+  /* margin-top: 30px; */
+  cursor: pointer;
+  margin-top: 10px;
+  /* background-color: aqua; */
+}
+
+.profile {
+  /* background-color: aqua; */
+  width: 100px;
+  margin-top: 19px;
+}
+
+.header {
+  display: flex;
+  order: 2;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-left: -38px;
+}
+
+.gbn {
+  display: flex;
+  justify-content: space-between;
+  list-style:none;
+  height: 32px;
+  width: 100%;
+}
+
+.gbn li {
+  text-align: center;
+  width: 20%;
+}
+
+.gbn li a {
+  text-decoration-line: none;
+  color: #F3EFE0;
+}
+
+.login_user {
+  /* background-color: red; */
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: block;
+  text-decoration-line: none;
+  text-align: center !important;
+  padding: 10px;
+  border: 1px solid #F3EFE0;
+  border-radius: 5px;
+  color: #F3EFE0;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* text-decoration: line-through !important; */
+}
+
+/* pc용 css */
+@media all and (min-width:1032px) {
+
+#wrap {
+  height: 70px;
+}
+
+.info_section {
+  order: 0;
+}
+
+.info_list {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.logo {
+  margin-top: 10px;
+  z-index: 2;
+  /* background-color: red; */
+}
+
+.profile {
+  margin-top: 19px;
+  z-index: 2;
+  /* background-color: red; */
+}
+
+.header {
+  margin-top: 0px;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+  /* background-color: olive; */
+}
+
+.nav {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 45%;
+}
+
+.gbn {
+  margin-top: 19px;
+}
+
+.gbn li {
+  line-height: 32px;
+  margin-top: auto;
+}
+}

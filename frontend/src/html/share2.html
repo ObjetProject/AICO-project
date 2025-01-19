@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AICO_share</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/post.css" />
+    <link rel="stylesheet" href="../css/share2.css" />
+    <link rel="stylesheet" href="../css/write2.css" />
+    <script src="../js/share2.js"></script>
+    <script src="../js/post.js"></script>
+    <script src="../js/write2.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("/html/header.html");
+      });
+      window.onload = displayAllImages();
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="profile_">
+      <input id="my-id" type="hidden" value="{{user.id}}" />
+    </div>
+
+    <form
+      id="twit-form"
+      action="/post"
+      method="post"
+      class="write_form"
+      enctype="multipart/form-data"
+    >
+      <!-- history불러오기 -->
+      <div class="callHistory" id="history_pop">
+        <div class="history_list" id="writeHistory">
+          <!-- ..... -->
+        </div>
+        <img class="close" src="close_btn.svg" onclick="closeHistoryPopup()" />
+      </div>
+
+      <!-- 이미지 파일을 입력할 수 있는 부분 -->
+      <div class="generate_img_input_box">
+        <input
+          class="text_box img_file_show"
+          id="choose_file"
+          placeholder="파일이름"
+          readonly
+        />
+        <div class="file_delete">
+          <a
+            onclick="deleteFile()"
+            class="file_delete_btn"
+            id="file_delete_btn"
+          >
+            <img src="close_btn.svg" alt="" />
+            <!-- <img src="delete_btn.svg" alt="" /> -->
+          </a>
+        </div>
+
+        <div class="img_input_btn_box">
+          <div onclick="showHistory()">
+            <input
+              type="text"
+              name="url"
+              class="imp_input_btn"
+              id="history_btn"
+              accept="image/*"
+            />+ Upload image
+          </div>
+
+          <!-- <div>
+            <label for="img" name="url" class="imp_input_btn" onclick="deleteHistory()">+ Upload image</label>
+          </div> -->
+        </div>
+
+        <div class="img-preview">
+          <img
+            class="preview"
+            id="img-preview"
+            src=""
+            style="display: none"
+            width="250"
+            alt="미리보기"
+          />
+          <input id="img-url" type="hidden" name="url" />
+        </div>
+        <div>
+          <input id="img" type="file" accept="image/*" />
+        </div>
+        <!-- <input id="img" type="file" accept="image/*">
+      <img class="preview" id="img-preview" src=""> -->
+      </div>
+
+      <hr class="mid_line" />
+
+      <!-- 게시글 입력 부분 -->
+      <div class="write_post_box">
+        <div class="input-group">
+          <textarea
+            name="content"
+            id="twit"
+            rows="1"
+            class="text_box post_txt"
+            placeholder="사과를 먹는 곰돌이"
+            maxlength="500"
+            onkeyup="textareaSize()"
+            onkeydown="textareaSize()"
+            onKeyPress="javascript: if (event.keyCode==13) return false;"
+          ></textarea>
+        </div>
+        <div class="post_btn">
+          <button id="twit-btn" type="submit" class="btn">upload</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="search_box">
+      <form class="search_form" id="hashtag-form" action="/hashtag">
+        <img class="search_icon" src="search_icon.svg" alt="" />
+        <input
+          class="search_txt"
+          type="text"
+          name="hashtag"
+          placeholder="Search for an image"
+        />
+        <button class="search_btn">Search</button>
+      </form>
+    </div>
+
+    <!-- 정렬 버튼 -->
+    <div class="sort_write_box">
+      <div class="wirte_btn">
+        <div class="write" onClick="showWrite()">
+          글쓰기 <img src="share_write_btn.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 게시물 전체 부분 -->
+    <div class="share_list_box">
+      <!-- 게시물 4개(한 줄) 묶음 -->
+      <div class="four_contents">
+        {% for twit in twits %}
+        <!-- 개별 게시물 _ class명 card-->
+        <div class="card">
+          <div class="card_profile_box">
+            <input
+              type="hidden"
+              value="{{twit.User.id}}"
+              class="twit-user-id"
+            />
+            <input type="hidden" value="{{twit.id}}" class="twit-id" />
+
+            <!-- 작성자의 프로필 이미지 -->
+            <div class="profile_img">
+              <a href="#"><img src="profile_circle.svg" alt="프로필" /></a>
+            </div>
+
+            <!-- 작성자 이름 -->
+            <div class="prifile_name">
+              <a href="#"><h3>{{twit.User.nick}}</h3></a>
+            </div>
+
+            {% if not followingIdList.includes(twit.User.id) and twit.User.id
+            !== user.id %}
+            <button class="twit-follow follow_btn">팔로우</button>
+            {% elif followingIdList.includes(twit.User.id) and twit.User.id !==
+            user.id %}
+            <button class="twit-unfollow follow_btn">팔로우끊기</button>
+            {% endif %}
+          </div>
+
+          <!-- 게시하는 이미지 -->
+          {% if twit.img %}
+          <div class="twit-img">
+            <img
+              src="{{twit.img}}"
+              id="preview"
+              class="card-img-top"
+              alt="."
+              onclick="showPopup('{{twit.img}}','{{twit.User.nick}}','{{twit.content}}', '{{twit.id}}')"
+            />
+          </div>
+          {% endif %}
+          <!-- <img class="preview" id="preview" src="{{twit.img}}"> -->
+          <!-- 아이콘 및 게시글 미리보이는 부분 -->
+          <div class="card-body">
+            <div class="card_icons_box">
+              <div class="card_icons">
+                <!-- 좋아요 버튼 부분 -->
+                <img
+                  class="like card_icon white_heart {{twit.id}}_heart_share"
+                  id="{{twit.id}}_heart"
+                  alt=""
+                  src=""
+                />
+                <!-- <img
+                  class="card_icon download_img"
+                  src="download_img.svg"
+                  alt=""
+                  onclick="imgDownload('{{twit.img}}','{{twit.img}}')"
+                /> -->
+                <img
+                  class="card_icon comment_icon"
+                  src="comment_icon.svg"
+                  alt=""
+                  onclick="showPopup('{{twit.img}}','{{twit.User.nick}}','{{twit.content}}', '{{twit.id}}')"
+                />
+                <!-- <a href="{{twit.img}}" onclick="javascript:imgDownload(this.src, 'logo.png')"></a> -->
+              </div>
+            </div>
+
+            <div class="card_text_box">
+              <p class="card_text">{{twit.content}}</p>
+            </div>
+
+            <input
+              type="hidden"
+              value="{{twit.User.id}}"
+              class="twit-user-id"
+            />
+            <input type="hidden" value="{{twit.id}}" class="twit-id" />
+            {% if twit.User.id == user.id %}
+            <button class="delete">게시글 삭제</button>
+            {% endif %}
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 팝업창 -->
+    <div id="popup" class="popup_bg">
+      <!-- 창 닫는 버튼 -->
+      <img class="close" src="close_btn.svg" onclick="closePopup()" />
+      <div class="post_pop">
+        <div class="post_img_box">
+          <!-- 팝업창 이미지 -->
+          <img id="post_img" class="post_img" src="{{twit.img}}" alt="" />
+          <div class="post_icon_box">
+            <!-- 팝업창 하트, 다운로드 버튼 -->
+            <div class="card_icons">
+              <img
+                class="like card_icon white_heart popup_heart"
+                src="white_heart.svg"
+                id="{{twit.id}}_heart"
+                alt=""
+              />
+              <!-- <img
+                class="card_icon download_img"
+                src="download_img.svg"
+                alt=""
+                onclick="imgDownload('{{twit.img}}','{{twit.img}}')"
+              /> -->
+            </div>
+          </div>
+        </div>
+        <div class="contents_box">
+          <!-- 게시물 공간 -->
+          <div class="contents">
+            <div class="writer_icon_name">
+              <img class="writer_icon" src="profile_circle.svg" />
+              <div class="writer_name" id="post_popup_userid">닉네임</div>
+              
+              <!-- {% if not followingIdList.includes(twit.User.id) and twit.User.id
+              !== user.id %}
+              <button class="twit-follow follow_btn">팔로우</button>
+              {% elif followingIdList.includes(twit.User.id) and twit.User.id
+              !== user.id %}
+              <button class="twit-unfollow follow_btn">팔로우끊기</button>
+              {% endif %} -->
+            </div>
+            <div class="writer_contents_style">
+              <!-- 게시글 부분 -->
+              <div class="contents_text" id="popupTxt">{{twit.content}}</div>
+              <hr />
+              <!-- 스타일 태그 보이는 부분 -->
+              <div class="contents_style">
+                <div class="img_style" id="generate_style"></div>
+                <!-- <br /> -->
+                <!-- <div class="img_style" id="generate_style">bbb</div> -->
+                <!-- <div class="img_style">#고양이</div>
+                <div class="img_style">#고전적인</div>
+                <div class="img_style">#갈색</div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 댓글 공간 -->
+
+          <ul class="post_box">
+            {% for comment in twit.Comments %}
+            <li class="post">
+              <div class="post_writer_icon_name">
+                <img class="post_icon" src="profile_circle.svg" />
+                <div class="post_name">{{comment.User.nick}}</div>
+                <img class="delete_comments" src="close_btn.svg">
+              </div>
+              <p class="img_post_txt">{{comment.content}}</p>
+              
+            </li>
+            {% endfor %}
+          </ul>
+
+          <!-- 댓글 입력란 -->
+          <form
+            action="/post/comments"
+            method="post"
+            class="write_img_post_box"
+          >
+            <textarea
+              id="write_txt"
+              name="content"
+              rows="1"
+              class="write_txt"
+              placeholder="댓글을 입력하세요"
+            ></textarea>
+            <input type="hidden" name="postId" value="{{twit.id}}" class="twit-id"/>
+            <button class="post_img_btn" type="submit">
+              <img src="send_icon.svg" alt="" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  {% block script %}
+  <script>
+    var postsComments = {};
+        document.addEventListener("DOMContentLoaded", function () {
+        var twits = {{ twitsJSON | safe }};
+        console.log("chrome log : ", twits);
+        twits.forEach(function (twit) {
+        postsComments[twit.id] = twit.Comments;
+          var heart = document.getElementById(twit.id + "_heart");
+          if (twit.isLiked) {
+            heart.src = "http://localhost:8003/like_btn.svg";
+          } else {
+            heart.src = "http://localhost:8003/white_heart.svg";
+          }
+        });
+      });
+  </script>
+  <script>
+    if (document.getElementById("img")) {
+      document.getElementById("img").addEventListener("change", function (e) {
+        const formData = new FormData();
+        console.log(this, this.files);
+        formData.append("img", this.files[0]);
+        axios
+          .post("/post/img", formData)
+          .then((res) => {
+            console.log(res);
+            document.getElementById("img-url").value = res.data.url;
+            document.getElementById("img-preview").src = res.data.url;
+            document.getElementById("img-preview").style.display = "inline";
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
+    }
+    document.querySelectorAll(".twit-follow").forEach(function (tag) {
+      console.log("성공");
+      tag.addEventListener("click", function () {
+        //클릭시 변경
+        const myId = document.querySelector("#my-id"); //#id 접근 layout 24줄 {{user.id}}값의 id
+        console.log(myId);
+        if (myId) {
+          console.log("성공3");
+          console.log(tag.parentNode);
+          const userId = tag.parentNode.querySelector(".twit-user-id").value; //.class 접근
+          console.log(userId);
+          if (userId !== myId.value) {
+            if (confirm("팔로잉하시겠습니까?")) {
+              axios
+                .post(`/user/${userId}/follow`)
+                .then(() => {
+                  location.reload();
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }
+          }
+        }
+      });
+    });
+    document.querySelectorAll(".twit-unfollow").forEach(function (tag) {
+      tag.addEventListener("click", function () {
+        const myId = document.querySelector("#my-id");
+        if (myId) {
+          const userId = tag.parentNode.querySelector(".twit-user-id").value;
+          if (userId !== myId.value) {
+            if (confirm("팔로잉 끊으시겠습니까?")) {
+              axios
+                .post(`/user/${userId}/unfollow`)
+                .then(() => {
+                  location.reload();
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }
+          }
+        }
+      });
+    });
+    document.querySelectorAll(".delete").forEach(function (tag) {
+      tag.addEventListener("click", function () {
+        const myId = document.querySelector("#my-id");
+        const twitId = tag.parentNode.querySelector(".twit-id").value;
+        if (myId) {
+          const userId = tag.parentNode.querySelector(".twit-user-id").value;
+          if (userId == myId.value) {
+            if (confirm("게시글을 삭제하시겠습니까?")) {
+              axios
+                .delete(`/post/${twitId}`) //트윗 아이디 가져와서 좋아요 요청 보냄
+                .then(() => {
+                  location.reload();
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }
+          }
+        }
+      });
+    });
+  </script>
+  <script src="../js/share2.js"></script>
+  {% endblock %}
+</html>

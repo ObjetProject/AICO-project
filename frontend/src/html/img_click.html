@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_img_click</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/img_click.css">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+    function copy(id) {
+      var r = document.createRange();
+      r.selectNode(document.getElementById(id));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+  </script>
+</head>
+
+<body>
+  <div class="img_click_box">
+    <img src="back_btn.svg" alt="" class="before_btn" onclick="alert('이전 화면으로')">
+    <div class="img_and_next_btn">
+      <button class="left_btn lr_btn" onclick="alert('L클릭!')">
+        <img src="left_btn.svg" alt="">
+      </button>
+      <img src="pic3.jpg" alt="" class="clicked_img">
+      <button class="right_btn lr_btn" onclick="alert('R클릭!')">
+        <img src="right_btn.svg" alt="">
+      </button>
+    </div>
+    <div class="like_down_box">
+      <button class="img_click_icon white_heart">
+        <img src="unlike_btn.svg" alt="">
+      </button>
+      <!-- <button class="img_click_icon download_img">
+        <img src="download_btn.svg" alt="">
+      </button> -->
+    </div>
+    <div class="generate_txt_box">
+      <img class="writer_icon" src="profile_circle.svg">
+      <div class="generate_txt_style">
+        <p id="copy_text">
+          내용입니다.내용입니다.내용입니다. <br>
+          #몽환적인 #몽환적인
+        </p>
+      </div>
+    </div>
+    <div class="copy_btn_box">
+      <button class="copy_btn" onclick="copy('copy_text');return false;">Copy prompt</button>
+    </div>
+
+  </div>
+
+
+</body>

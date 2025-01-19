@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AICO_signup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/signup.css">
+  <script src="../js/signup.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#header").load("/html/header.html");
+    });
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="title">AICO</div>
+  <div class="sub_title">AI create objet</div>
+
+  <form action="/auth/signup" method="post" onsubmit="return checkSignUp(this)" class="signup_form" name="signup_form">
+
+    <!-- 이름(닉네임) 입력받는 부분 -->
+    <div class="signup_name_input_box">
+      <div class="guide_text">User Name</div>
+      <input name="nick" type="text" id="nickName" class="input_box">
+    </div>
+
+    <!-- id 입력받는 부분 -->
+    <div class="signup_id_input_box">
+      <div class="guide_text">User ID</div>
+      <input name="email" type="text" id="id" class="input_box">
+    </div>
+
+    <!-- 비번 입력받는 부분 -->
+    <div class="signup_password_input_box">
+      <div class="guide_text">Password</div>
+      <input name="password" type="password" id="pw" class="input_box">
+    </div>
+
+    <!-- 비번 확인 부분 -->
+    <div class="signup_password_input_box">
+      <div class="guide_text">Password check</div>
+      <input name="password_check_input" type="password" id="cpw" class="input_box">
+    </div>
+
+    <!-- 회원가입 버튼_ 누르면 form 태그 실행 -->
+    <div class="signup_btn">
+      <input type="submit" value="sign up" class="btn">
+    </div>
+  </form>
+</body>
